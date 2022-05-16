@@ -4,7 +4,8 @@ layout: "base.njk"
 ---
 
 <video autoplay muted loop>
-  <source src="assets/video/bg-video.mp4" type="video/mp4"/>
+    <source src="assets/video/bg-video.webm" type="video/webm"/>
+    <source src="assets/video/bg-video.mp4" type="video/mp4"/>
 </video>
 
 <div class="flex-wrapper">
