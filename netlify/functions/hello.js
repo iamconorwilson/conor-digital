@@ -8,10 +8,11 @@ exports.handler = async function (event, context) {
 
     spotifyApi.setAccessToken('BQD-3n5kwElgTkjgb2q7K1qC7c25Yd8-qcjH3dVDDxwmrUsRsgcsPSf2ICU11vRpLoLc9y0crBZOBqFib61yDEjbC5Ag1K4v90P5-ChMaspKs2iwnQkrZz4HpQ6qhg3anf_pss2RRVd-J6rJRdF9mWUPKg');
     spotifyApi.setRefreshToken('AQB7nOt2x5ImY4QJ8ZDG2rFb12ahKY5E0FxYtmbOjqv4ivE9SOYJ91wIz-fqkLI0AC0MBmhVAlHfpjD4KaqQUzfm75x4RkYPHhx0mPE2tHZ-PqKq0OXo5vfC5nAYB0ojeek');
+    let topArtists = '';
 
     spotifyApi.getMyTopArtists()
     .then(function(data) {
-        let topArtists = data.body.items;
+        topArtists = data.body.items;
     }, function(err) {
         console.log('Something went wrong!', err);
     });
