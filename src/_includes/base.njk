@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{{ title }}</title>
+    <link rel="stylesheet" href="{{ 'css/main.css' | url }}">
+  </head>
+  <body>
+    <main>
+	    {{ content | safe }}
+    </main>
+    <footer>
+        {% set links = [
+            {url: 'https://twitter.com/iamconorwilson', title: 'Twitter', image: 'assets/images/social-assets/twitter.png'},
+            {url: 'https://www.instagram.com/iamconorwilson/', title: 'Instagram', image: 'assets/images/social-assets/instagram.png'},
+            {url: 'https://github.com/iamconorwilson/', title: 'Github', image: 'assets/images/social-assets/github.png'}
+        ] %}
+        <div class="social-links">
+        {% for link in links %}
+            <a href="{{ link.url }}">
+                <img src="{{ link.image | url }}" alt="{{ link.title }}">
+            </a>
+        {% endfor %}
+        </div>
+        <p class="footer-message">
+            No cookies, no tracking :)
+        </p>
+    </footer>
+  </body>
+</html>
