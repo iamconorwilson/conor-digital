@@ -25,7 +25,7 @@ exports.handler = async function (event, context) {
     );
 
     let topArtists = null;
-    let randOffset = between(0, 9);
+    let randOffset = between(0, 4);
     await spotifyApi.getMyTopArtists({
         limit: '1',
         time_range: 'short_term',
