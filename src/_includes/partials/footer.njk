@@ -1,0 +1,18 @@
+<footer>
+        {% set links = [
+            {url: 'https://twitter.com/iamconorwilson', title: 'Twitter', image: 'assets/images/social-assets/twitter.png'},
+            {url: 'https://www.instagram.com/iamconorwilson/', title: 'Instagram', image: 'assets/images/social-assets/instagram.png'},
+            {url: 'https://github.com/iamconorwilson/', title: 'Github', image: 'assets/images/social-assets/github.png'}
+        ] %}
+        <div class="social-links">
+        {% for link in links %}
+            <a href="{{ link.url }}">
+                <img src="{{ link.image | url }}" alt="{{ link.title }}">
+            </a>
+        {% endfor %}
+        </div>
+        <p class="footer-message">
+            No cookies, no tracking :)
+        </p>
+        <script src="js/main.js"></script>
+    </footer>
