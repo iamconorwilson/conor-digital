@@ -11,6 +11,6 @@ layout: "base.njk"
 <div class="flex-wrapper">
     <h1>Hello, I am Conor&nbsp;Wilson</h1>
     <p>I am an email designer and developer based in the&nbsp;UK</p>
-    <p>Currently creating at <a href='https://jarrang.com'>Jarrang</a> and listening to&nbsp;<a href="#" id='listen' target='_blank'></a></p>
+    <p>Currently creating at <a href='https://actionrocket.co'>Action Rocket</a> and listening to&nbsp;<a href="#" id='listen' target='_blank'></a></p>
     <p>I also make incredible Mac and&nbsp;Cheese</p>
 </div>
