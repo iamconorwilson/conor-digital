@@ -1,24 +1,24 @@
 @font-face {
-  font-family: "SF UI Display";
+  font-family: "Helvetica Now";
   font-style: normal;
   font-weight: 300;
-  src: url("/assets/fonts/sf-ui-display-light.woff") format("woff");
+  src: url("/assets/fonts/HelveticaNowText-Light.woff2") format("woff2");
 }
 @font-face {
-  font-family: "SF UI Display";
+  font-family: "Helvetica Now";
   font-style: normal;
   font-weight: normal;
-  src: url("/assets/fonts/sf-ui-display-medium.woff") format("woff");
+  src: url("/assets/fonts/HelveticaNowText-Regular.woff2") format("woff2");
 }
 @font-face {
-  font-family: "SF UI Display";
+  font-family: "Helvetica Now";
   font-style: normal;
   font-weight: 600;
-  src: url("/assets/fonts/sf-ui-display-semibold.woff") format("woff");
+  src: url("/assets/fonts/HelveticaNowText-Bold.woff2") format("woff2");
 }
 body {
   height: 100vh;
-  font-family: "SF UI Display", sans-serif;
+  font-family: "Helvetica Now", sans-serif;
   margin: 0 1rem;
   color: #ffffff;
   display: flex;
@@ -30,12 +30,13 @@ h1 {
   margin: 0;
   line-height: 3rem;
   font-weight: 600;
+  text-shadow: 0 0 12px rgba(0, 0, 0, 0.2);
 }
 
 p {
   font-size: 1.5rem;
   font-weight: 300;
-  letter-spacing: 0.02rem;
+  letter-spacing: -0.03rem;
 }
 
 a {
@@ -54,8 +55,20 @@ main {
   height: calc(100vh - 80px);
 }
 main .flex-wrapper {
-  max-width: 750px;
-  width: 750px;
+  max-width: 580px;
+  width: 100%;
+}
+
+.header {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+.header .profile {
+  border-radius: 100px;
+  width: 60px;
+  overflow: hidden;
+  box-shadow: 0 0 12px 4px rgba(0, 0, 0, 0.1);
 }
 
 footer {
@@ -67,12 +80,12 @@ footer {
   width: 100%;
   max-width: 90vw;
   padding: 0 40px;
-  margin-bottom: 10px;
+  margin-bottom: 30px;
   gap: 1rem;
 }
 footer p {
-  font-size: 1rem;
-  filter: opacity(0.8);
+  font-size: 0.875rem;
+  opacity: 0.6;
 }
 footer .social-links {
   display: flex;
@@ -85,11 +98,11 @@ footer .social-links a {
 footer .social-links img {
   width: 40px;
   height: 40px;
-  filter: opacity(0.6);
-  transition: filter 0.2s ease-in-out;
+  opacity: 0.6;
+  transition: opacity 0.2s ease-in-out;
 }
 footer .social-links a:hover img {
-  filter: opacity(1);
+  opacity: 1;
 }
 
 video {
@@ -106,11 +119,6 @@ video {
   footer {
     padding: 0;
     gap: 0;
-  }
-
-  .flex-wrapper {
-    max-width: 100% !important;
-    width: 100% !important;
   }
 }
 @media screen and (max-width: 425px) {

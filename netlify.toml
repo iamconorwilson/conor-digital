@@ -1,0 +1,12 @@
+
+[build]
+  publish = "build/"
+  command = "npm run build"
+
+[functions]
+  directory = "functions/"
+
+[dev]
+  command = "npm start"
+  port = 8888
+  publish = "build"
