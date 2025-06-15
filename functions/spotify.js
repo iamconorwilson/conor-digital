@@ -27,10 +27,10 @@ const handler = async (event, context) => {
   );
 
   let topArtists = null;
-  let randOffset = between(0, 4);
+  let randOffset = between(0, 8);
   await spotifyApi.getMyTopArtists({
     limit: '1',
-    time_range: 'medium_term',
+    time_range: 'long_term',
     offset: randOffset
   })
     .then(function (data) {
