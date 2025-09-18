@@ -1,27 +1,26 @@
-function replaceAt(str,index,replace) {
-    if (index > str.length - 1 || index < 0) return str;
-    return str.substring(0, index) + replace + str.substring(index + 1);
-}
 
-const spotifyLoad = async () => {
+
+async function spotifyLoad() {
     const responseText = document.getElementById('listen');
-    const response = await fetch('.netlify/functions/spotify')
-    .then(res => res.json())
-    .catch(err => {
-        console.log(err);
-        return {
-            artist: 'Radiohead',
-            url: 'https://open.spotify.com/artist/4Z8W4fKeB5YxbusRsdQVPb'
-        }
-    });
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 500);
 
-    let artistName = replaceAt(response.artist, response.artist.lastIndexOf(" "), "&nbsp;");
-    responseText.innerHTML = artistName;
-    responseText.href = response.url;
+    try {
+        const res = await fetch('.netlify/functions/spotify', { signal: controller.signal });
+        clearTimeout(timeoutId);
+        const response = await res.json();
+        responseText.innerHTML = response.artist;
+        responseText.href = response.url;
+    } catch (err) {
+        clearTimeout(timeoutId);
+        console.log(err);
+        responseText.innerHTML = 'Radiohead';
+        responseText.href = 'https://open.spotify.com/artist/4Z8W4fKeB5YxbusRsdQVPb';
+    }
     responseText.classList.add('loaded');
 }
 
-const bgLoad = async () => {
+async function bgLoad() {
     const script = document.createElement('script');
     script.src = '/js/pocoloco.js';
     script.onload = () => {

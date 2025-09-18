@@ -34,6 +34,7 @@ async function getAccessToken() {
   return access_token;
 }
 
+
 export const handler = async (event, context) => {
   const fallbackData = {
     artist: 'Radiohead',
