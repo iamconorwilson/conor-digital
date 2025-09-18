@@ -136,28 +136,19 @@ canvas#canvas {
     height: 100%;
     transform: scale(4, 2);
     filter: blur(4px);
-    --gradient-color-1: #2369E1;
-    --gradient-color-2: #B01E9D;
+    --gradient-color-1: #2369e1;
+    --gradient-color-2: #b01e9d;
     --gradient-color-3: #220042;
     --gradient-color-4: #220042;
     --gradient-speed: 0.000008;
     opacity: 0;
-    transition: opacity 0.5s ease;
+    transition: opacity 2s ease;
 
     &.loaded {
         opacity: 1;
     }
 }
-
-#listen {
-    opacity: 0;
-    transition: opacity $transition-speed ease;
-
-    &.loaded {
-        opacity: 1;
-    }
-}
-
+    
 /* --- Animations --- */
 .fadeup {
     animation: fadeUpIn 0.6s ease forwards;
@@ -166,10 +157,14 @@ canvas#canvas {
 }
 
 .fadein {
-    animation: fadeIn 1s ease forwards;
     opacity: 0;
-    animation-delay: 0.4s;
+    animation-delay: 0.2s;
+
+    &:has(#listen.loaded) {
+        animation: fadeIn 1s ease forwards;
+    }
 }
+
 
 /* --- Keyframes --- */
 @keyframes ellipsis {
