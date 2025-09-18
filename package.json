@@ -11,9 +11,6 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "dependencies": {
-    "@spotify/web-api-ts-sdk": "^1.2.0"
-  },
   "devDependencies": {
     "@11ty/eleventy": "^3.1.2",
     "clean-css": "^5.3.3",
