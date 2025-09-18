@@ -1,27 +1,25 @@
 {
   "name": "conor-digital",
-  "version": "1.1.0",
+  "version": "2.2.0",
   "description": "",
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "watch:sass": "sass --watch src/sass/main.scss:src/css/main.css",
-    "build:sass": "sass src/sass/main.scss:src/css/main.css",
-    "watch:eleventy": "eleventy --serve",
-    "build:eleventy": "eleventy",
-    "start": "npm-run-all build:sass --parallel watch:*",
-    "build": "npm-run-all build:*"
+    "start": "eleventy --serve",
+    "build": "eleventy"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "dependencies": {
+    "@spotify/web-api-ts-sdk": "^1.2.0"
+  },
   "devDependencies": {
-    "@11ty/eleventy": "^3.1.1",
-    "@spotify/web-api-ts-sdk": "^1.2.0",
+    "@11ty/eleventy": "^3.1.2",
     "clean-css": "^5.3.3",
     "glob": "^11.0.3",
     "npm-run-all": "^4.1.5",
-    "sass": "^1.89.2",
-    "terser": "^5.42.0"
+    "sass": "^1.92.1",
+    "terser": "^5.44.0"
   }
 }

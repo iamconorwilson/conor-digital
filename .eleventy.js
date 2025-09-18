@@ -1,10 +1,11 @@
 import CleanCSS from "clean-css";
 import { minify } from "terser";
 import { globSync } from "glob";
+import { compile as sassCompile } from "sass";
 import fs from "fs";
 
 
-const minifyCSS = () => {
+function minifyCSS() {
     console.log("Minifying CSS files...");
     const cleanCSS = new CleanCSS();
     const cssFiles = globSync("./build/css/*.css");
@@ -21,7 +22,7 @@ const minifyCSS = () => {
     });
 }
 
-const minifyJS = async () => {
+async function minifyJS() {
     console.log("Minifying JS files...");
     const jsFiles = globSync("./build/js/*.js");
     jsFiles.forEach(async file => {
@@ -36,12 +37,25 @@ const minifyJS = async () => {
     })
 }
 
+function compileSass() {
+    console.log("Compiling SASS...");
+    const result = sassCompile("./src/sass/main.scss", { style: 'expanded' });
+    if (!fs.existsSync("./build/css")) {
+        fs.mkdirSync("./build/css", { recursive: true });
+    }
+    fs.writeFileSync("./build/css/main.css", result.css);
+}
+
 export default function (eleventyConfig) {
     eleventyConfig.addWatchTarget("./src/sass/");
-    eleventyConfig.addPassthroughCopy("./src/css");
     eleventyConfig.addPassthroughCopy("./src/js");
-    eleventyConfig.addPassthroughCopy("./src/assets/");
-    eleventyConfig.addPassthroughCopy("./src/admin/");
+    eleventyConfig.addPassthroughCopy("./src/assets/fonts");
+    eleventyConfig.addPassthroughCopy("./src/assets/images");
+    eleventyConfig.addPassthroughCopy("./src/assets/examples");
+
+    eleventyConfig.on("beforeBuild", () => {
+        compileSass();
+    });
 
     eleventyConfig.on("afterBuild", () => {
         minifyCSS();

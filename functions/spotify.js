@@ -42,8 +42,8 @@ try {
         access_token: access_token
     });
 
-    const randOffset = between(0, 8);
-    const topArtistsPage = await sdk.currentUser.topItems('artists', 'long_term', 1, randOffset);
+    const randOffset = between(0, 9);
+    const topArtistsPage = await sdk.currentUser.topItems('artists', 'medium_term', 1, randOffset);
     const topArtists = topArtistsPage.items;
 
     if (!topArtists || topArtists.length === 0) {
